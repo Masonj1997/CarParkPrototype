@@ -28,53 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button14 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.btnPayCash = new System.Windows.Forms.Button();
+            this.btnPayCard = new System.Windows.Forms.Button();
+            this.btnPayBitCoin = new System.Windows.Forms.Button();
+            this.btnSecureAdvancePayment = new System.Windows.Forms.Button();
+            this.btnToggleEmergency = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.prepaidTickets = new System.Windows.Forms.ListBox();
+            this.lstPrepaidTickets = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.activeTickets = new System.Windows.Forms.ListBox();
+            this.ltsActiveTickets = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblFloor0Spaces = new System.Windows.Forms.Label();
+            this.lblFloor2Spaces = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblFloor1Spaces = new System.Windows.Forms.Label();
+            this.lblFullSign = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.button17 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnExitOverride = new System.Windows.Forms.Button();
+            this.lblExitBarrier = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblExitSensor = new System.Windows.Forms.Label();
             this.Entry = new System.Windows.Forms.GroupBox();
-            this.button16 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.btnBarrierOverride = new System.Windows.Forms.Button();
+            this.lblEntryBarrier = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblEntrySensor = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnVehicleExits = new System.Windows.Forms.Button();
             this.lblTicketValidator = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.butVehicleArrivesExit = new System.Windows.Forms.Button();
+            this.btnPrepaidExit = new System.Windows.Forms.Button();
+            this.btnNormalExit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.vehicleArrive = new System.Windows.Forms.Button();
+            this.btnVehicleEnters = new System.Windows.Forms.Button();
+            this.btnEmergencyEntrance = new System.Windows.Forms.Button();
+            this.btnPrepaidEntrance = new System.Windows.Forms.Button();
+            this.btnNormalEntrance = new System.Windows.Forms.Button();
+            this.btnVehicleArriveEntrance = new System.Windows.Forms.Button();
             this.lblTicketMachine = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.lblEmergencyVehicles = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.lblEmergencySign = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -83,91 +88,93 @@
             this.Entry.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button14
+            // btnPayCash
             // 
-            this.button14.Location = new System.Drawing.Point(481, 12);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(187, 32);
-            this.button14.TabIndex = 22;
-            this.button14.Text = "button14";
-            this.button14.UseVisualStyleBackColor = true;
+            this.btnPayCash.Location = new System.Drawing.Point(481, 12);
+            this.btnPayCash.Name = "btnPayCash";
+            this.btnPayCash.Size = new System.Drawing.Size(187, 32);
+            this.btnPayCash.TabIndex = 22;
+            this.btnPayCash.Text = "Pay cash";
+            this.btnPayCash.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // btnPayCard
             // 
-            this.button13.Location = new System.Drawing.Point(481, 49);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(187, 32);
-            this.button13.TabIndex = 21;
-            this.button13.Text = "button13";
-            this.button13.UseVisualStyleBackColor = true;
+            this.btnPayCard.Location = new System.Drawing.Point(481, 49);
+            this.btnPayCard.Name = "btnPayCard";
+            this.btnPayCard.Size = new System.Drawing.Size(187, 32);
+            this.btnPayCard.TabIndex = 21;
+            this.btnPayCard.Text = "Pay Card";
+            this.btnPayCard.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // btnPayBitCoin
             // 
-            this.button15.Location = new System.Drawing.Point(481, 87);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(187, 32);
-            this.button15.TabIndex = 20;
-            this.button15.Text = "button15";
-            this.button15.UseVisualStyleBackColor = true;
+            this.btnPayBitCoin.Location = new System.Drawing.Point(481, 87);
+            this.btnPayBitCoin.Name = "btnPayBitCoin";
+            this.btnPayBitCoin.Size = new System.Drawing.Size(187, 32);
+            this.btnPayBitCoin.TabIndex = 20;
+            this.btnPayBitCoin.Text = "Pay Bit Coin";
+            this.btnPayBitCoin.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // btnSecureAdvancePayment
             // 
-            this.button12.Location = new System.Drawing.Point(674, 76);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(207, 41);
-            this.button12.TabIndex = 19;
-            this.button12.Text = "button12";
-            this.button12.UseVisualStyleBackColor = true;
+            this.btnSecureAdvancePayment.Location = new System.Drawing.Point(674, 76);
+            this.btnSecureAdvancePayment.Name = "btnSecureAdvancePayment";
+            this.btnSecureAdvancePayment.Size = new System.Drawing.Size(207, 41);
+            this.btnSecureAdvancePayment.TabIndex = 19;
+            this.btnSecureAdvancePayment.Text = "Secure parking advance payment";
+            this.btnSecureAdvancePayment.UseVisualStyleBackColor = true;
             // 
-            // button11
+            // btnToggleEmergency
             // 
-            this.button11.Location = new System.Drawing.Point(674, 29);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(208, 41);
-            this.button11.TabIndex = 18;
-            this.button11.Text = "button11";
-            this.button11.UseVisualStyleBackColor = true;
+            this.btnToggleEmergency.Location = new System.Drawing.Point(674, 29);
+            this.btnToggleEmergency.Name = "btnToggleEmergency";
+            this.btnToggleEmergency.Size = new System.Drawing.Size(208, 41);
+            this.btnToggleEmergency.TabIndex = 18;
+            this.btnToggleEmergency.Text = "Emergency";
+            this.btnToggleEmergency.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.prepaidTickets);
+            this.groupBox5.Controls.Add(this.lstPrepaidTickets);
             this.groupBox5.Location = new System.Drawing.Point(720, 145);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(169, 472);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "groupBox5";
+            this.groupBox5.Text = "Prepaid tickets";
             // 
-            // prepaidTickets
+            // lstPrepaidTickets
             // 
-            this.prepaidTickets.FormattingEnabled = true;
-            this.prepaidTickets.Location = new System.Drawing.Point(7, 19);
-            this.prepaidTickets.Name = "prepaidTickets";
-            this.prepaidTickets.Size = new System.Drawing.Size(156, 433);
-            this.prepaidTickets.TabIndex = 0;
+            this.lstPrepaidTickets.FormattingEnabled = true;
+            this.lstPrepaidTickets.Location = new System.Drawing.Point(7, 19);
+            this.lstPrepaidTickets.Name = "lstPrepaidTickets";
+            this.lstPrepaidTickets.Size = new System.Drawing.Size(156, 433);
+            this.lstPrepaidTickets.TabIndex = 0;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.activeTickets);
+            this.groupBox4.Controls.Add(this.ltsActiveTickets);
             this.groupBox4.Location = new System.Drawing.Point(545, 145);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(169, 472);
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
+            this.groupBox4.Text = "Active tickets";
             // 
-            // activeTickets
+            // ltsActiveTickets
             // 
-            this.activeTickets.FormattingEnabled = true;
-            this.activeTickets.Location = new System.Drawing.Point(6, 19);
-            this.activeTickets.Name = "activeTickets";
-            this.activeTickets.Size = new System.Drawing.Size(156, 433);
-            this.activeTickets.TabIndex = 0;
+            this.ltsActiveTickets.FormattingEnabled = true;
+            this.ltsActiveTickets.Location = new System.Drawing.Point(6, 19);
+            this.ltsActiveTickets.Name = "ltsActiveTickets";
+            this.ltsActiveTickets.Size = new System.Drawing.Size(156, 433);
+            this.ltsActiveTickets.TabIndex = 0;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.groupBox6);
             this.groupBox3.Controls.Add(this.groupBox8);
             this.groupBox3.Controls.Add(this.groupBox7);
             this.groupBox3.Controls.Add(this.Entry);
@@ -177,99 +184,101 @@
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Internal data";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.label14);
-            this.groupBox8.Controls.Add(this.label10);
+            this.groupBox8.Controls.Add(this.lblFloor0Spaces);
+            this.groupBox8.Controls.Add(this.lblFloor2Spaces);
             this.groupBox8.Controls.Add(this.label15);
             this.groupBox8.Controls.Add(this.label16);
             this.groupBox8.Controls.Add(this.label11);
-            this.groupBox8.Controls.Add(this.label17);
-            this.groupBox8.Controls.Add(this.label13);
+            this.groupBox8.Controls.Add(this.lblFloor1Spaces);
+            this.groupBox8.Controls.Add(this.lblFullSign);
             this.groupBox8.Controls.Add(this.label12);
             this.groupBox8.Location = new System.Drawing.Point(6, 256);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(157, 159);
+            this.groupBox8.Size = new System.Drawing.Size(157, 146);
             this.groupBox8.TabIndex = 5;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Spaces";
             // 
-            // label14
+            // lblFloor0Spaces
             // 
-            this.label14.BackColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(75, 112);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(76, 23);
-            this.label14.TabIndex = 14;
+            this.lblFloor0Spaces.BackColor = System.Drawing.Color.White;
+            this.lblFloor0Spaces.Location = new System.Drawing.Point(75, 112);
+            this.lblFloor0Spaces.Name = "lblFloor0Spaces";
+            this.lblFloor0Spaces.Size = new System.Drawing.Size(76, 23);
+            this.lblFloor0Spaces.TabIndex = 14;
             // 
-            // label10
+            // lblFloor2Spaces
             // 
-            this.label10.BackColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(75, 50);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 23);
-            this.label10.TabIndex = 14;
+            this.lblFloor2Spaces.BackColor = System.Drawing.Color.White;
+            this.lblFloor2Spaces.Location = new System.Drawing.Point(75, 50);
+            this.lblFloor2Spaces.Name = "lblFloor2Spaces";
+            this.lblFloor2Spaces.Size = new System.Drawing.Size(76, 23);
+            this.lblFloor2Spaces.TabIndex = 14;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(16, 84);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(40, 13);
+            this.label15.Size = new System.Drawing.Size(39, 13);
             this.label15.TabIndex = 11;
-            this.label15.Text = "Sensor";
+            this.label15.Text = "Floor 1";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(16, 115);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(37, 13);
+            this.label16.Size = new System.Drawing.Size(39, 13);
             this.label16.TabIndex = 13;
-            this.label16.Text = "Barrier";
+            this.label16.Text = "Floor 0";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(16, 22);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(40, 13);
+            this.label11.Size = new System.Drawing.Size(45, 13);
             this.label11.TabIndex = 11;
-            this.label11.Text = "Sensor";
+            this.label11.Text = "Full sign";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // label17
+            // lblFloor1Spaces
             // 
-            this.label17.BackColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(75, 81);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(76, 23);
-            this.label17.TabIndex = 12;
+            this.lblFloor1Spaces.BackColor = System.Drawing.Color.White;
+            this.lblFloor1Spaces.Location = new System.Drawing.Point(75, 81);
+            this.lblFloor1Spaces.Name = "lblFloor1Spaces";
+            this.lblFloor1Spaces.Size = new System.Drawing.Size(76, 23);
+            this.lblFloor1Spaces.TabIndex = 12;
             // 
-            // label13
+            // lblFullSign
             // 
-            this.label13.BackColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(75, 19);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(76, 23);
-            this.label13.TabIndex = 12;
+            this.lblFullSign.BackColor = System.Drawing.Color.White;
+            this.lblFullSign.Location = new System.Drawing.Point(75, 19);
+            this.lblFullSign.Name = "lblFullSign";
+            this.lblFullSign.Size = new System.Drawing.Size(76, 23);
+            this.lblFullSign.TabIndex = 12;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(16, 53);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 13);
+            this.label12.Size = new System.Drawing.Size(39, 13);
             this.label12.TabIndex = 13;
-            this.label12.Text = "Barrier";
+            this.label12.Text = "Floor 2";
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.button17);
-            this.groupBox7.Controls.Add(this.label3);
+            this.groupBox7.Controls.Add(this.btnExitOverride);
+            this.groupBox7.Controls.Add(this.lblExitBarrier);
             this.groupBox7.Controls.Add(this.label9);
             this.groupBox7.Controls.Add(this.label7);
-            this.groupBox7.Controls.Add(this.label8);
+            this.groupBox7.Controls.Add(this.lblExitSensor);
             this.groupBox7.Location = new System.Drawing.Point(6, 138);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(157, 112);
@@ -277,22 +286,22 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Exit";
             // 
-            // button17
+            // btnExitOverride
             // 
-            this.button17.Location = new System.Drawing.Point(6, 77);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(145, 26);
-            this.button17.TabIndex = 10;
-            this.button17.Text = "button17";
-            this.button17.UseVisualStyleBackColor = true;
+            this.btnExitOverride.Location = new System.Drawing.Point(6, 77);
+            this.btnExitOverride.Name = "btnExitOverride";
+            this.btnExitOverride.Size = new System.Drawing.Size(145, 26);
+            this.btnExitOverride.TabIndex = 10;
+            this.btnExitOverride.Text = "Override";
+            this.btnExitOverride.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // lblExitBarrier
             // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(75, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 23);
-            this.label3.TabIndex = 9;
+            this.lblExitBarrier.BackColor = System.Drawing.Color.White;
+            this.lblExitBarrier.Location = new System.Drawing.Point(75, 46);
+            this.lblExitBarrier.Name = "lblExitBarrier";
+            this.lblExitBarrier.Size = new System.Drawing.Size(76, 23);
+            this.lblExitBarrier.TabIndex = 9;
             // 
             // label9
             // 
@@ -312,20 +321,20 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "Barrier";
             // 
-            // label8
+            // lblExitSensor
             // 
-            this.label8.BackColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(75, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 23);
-            this.label8.TabIndex = 7;
+            this.lblExitSensor.BackColor = System.Drawing.Color.White;
+            this.lblExitSensor.Location = new System.Drawing.Point(75, 15);
+            this.lblExitSensor.Name = "lblExitSensor";
+            this.lblExitSensor.Size = new System.Drawing.Size(76, 23);
+            this.lblExitSensor.TabIndex = 7;
             // 
             // Entry
             // 
-            this.Entry.Controls.Add(this.button16);
-            this.Entry.Controls.Add(this.label5);
+            this.Entry.Controls.Add(this.btnBarrierOverride);
+            this.Entry.Controls.Add(this.lblEntryBarrier);
             this.Entry.Controls.Add(this.label6);
-            this.Entry.Controls.Add(this.label4);
+            this.Entry.Controls.Add(this.lblEntrySensor);
             this.Entry.Controls.Add(this.label2);
             this.Entry.Location = new System.Drawing.Point(6, 20);
             this.Entry.Name = "Entry";
@@ -334,22 +343,22 @@
             this.Entry.TabStop = false;
             this.Entry.Text = "Entry";
             // 
-            // button16
+            // btnBarrierOverride
             // 
-            this.button16.Location = new System.Drawing.Point(6, 78);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(145, 26);
-            this.button16.TabIndex = 5;
-            this.button16.Text = "button16";
-            this.button16.UseVisualStyleBackColor = true;
+            this.btnBarrierOverride.Location = new System.Drawing.Point(6, 78);
+            this.btnBarrierOverride.Name = "btnBarrierOverride";
+            this.btnBarrierOverride.Size = new System.Drawing.Size(145, 26);
+            this.btnBarrierOverride.TabIndex = 5;
+            this.btnBarrierOverride.Text = "Override";
+            this.btnBarrierOverride.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // lblEntryBarrier
             // 
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(75, 47);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 23);
-            this.label5.TabIndex = 4;
+            this.lblEntryBarrier.BackColor = System.Drawing.Color.White;
+            this.lblEntryBarrier.Location = new System.Drawing.Point(75, 47);
+            this.lblEntryBarrier.Name = "lblEntryBarrier";
+            this.lblEntryBarrier.Size = new System.Drawing.Size(76, 23);
+            this.lblEntryBarrier.TabIndex = 4;
             // 
             // label6
             // 
@@ -360,13 +369,13 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Barrier";
             // 
-            // label4
+            // lblEntrySensor
             // 
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(75, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 23);
-            this.label4.TabIndex = 2;
+            this.lblEntrySensor.BackColor = System.Drawing.Color.White;
+            this.lblEntrySensor.Location = new System.Drawing.Point(75, 16);
+            this.lblEntrySensor.Name = "lblEntrySensor";
+            this.lblEntrySensor.Size = new System.Drawing.Size(76, 23);
+            this.lblEntrySensor.TabIndex = 2;
             // 
             // label2
             // 
@@ -379,12 +388,12 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Controls.Add(this.btnVehicleExits);
             this.groupBox2.Controls.Add(this.lblTicketValidator);
             this.groupBox2.Controls.Add(this.button7);
-            this.groupBox2.Controls.Add(this.button10);
-            this.groupBox2.Controls.Add(this.button8);
-            this.groupBox2.Controls.Add(this.button9);
+            this.groupBox2.Controls.Add(this.butVehicleArrivesExit);
+            this.groupBox2.Controls.Add(this.btnPrepaidExit);
+            this.groupBox2.Controls.Add(this.btnNormalExit);
             this.groupBox2.Location = new System.Drawing.Point(195, 125);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(169, 500);
@@ -392,14 +401,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Exit simulator";
             // 
-            // button6
+            // btnVehicleExits
             // 
-            this.button6.Location = new System.Drawing.Point(6, 248);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(157, 43);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnVehicleExits.Location = new System.Drawing.Point(6, 248);
+            this.btnVehicleExits.Name = "btnVehicleExits";
+            this.btnVehicleExits.Size = new System.Drawing.Size(157, 43);
+            this.btnVehicleExits.TabIndex = 10;
+            this.btnVehicleExits.Text = "Vehicle exits car park";
+            this.btnVehicleExits.UseVisualStyleBackColor = true;
             // 
             // lblTicketValidator
             // 
@@ -415,43 +424,43 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(157, 43);
             this.button7.TabIndex = 9;
-            this.button7.Text = "button7";
+            this.button7.Text = "Emergency vehicle";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // butVehicleArrivesExit
             // 
-            this.button10.Location = new System.Drawing.Point(6, 52);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(157, 43);
-            this.button10.TabIndex = 6;
-            this.button10.Text = "button10";
-            this.button10.UseVisualStyleBackColor = true;
+            this.butVehicleArrivesExit.Location = new System.Drawing.Point(6, 52);
+            this.butVehicleArrivesExit.Name = "butVehicleArrivesExit";
+            this.butVehicleArrivesExit.Size = new System.Drawing.Size(157, 43);
+            this.butVehicleArrivesExit.TabIndex = 6;
+            this.butVehicleArrivesExit.Text = "Vehicle arrives at exit";
+            this.butVehicleArrivesExit.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnPrepaidExit
             // 
-            this.button8.Location = new System.Drawing.Point(6, 150);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(157, 43);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnPrepaidExit.Location = new System.Drawing.Point(6, 150);
+            this.btnPrepaidExit.Name = "btnPrepaidExit";
+            this.btnPrepaidExit.Size = new System.Drawing.Size(157, 43);
+            this.btnPrepaidExit.TabIndex = 8;
+            this.btnPrepaidExit.Text = "Prepaid car enters their code to exit";
+            this.btnPrepaidExit.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnNormalExit
             // 
-            this.button9.Location = new System.Drawing.Point(6, 101);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(157, 43);
-            this.button9.TabIndex = 7;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnNormalExit.Location = new System.Drawing.Point(6, 101);
+            this.btnNormalExit.Name = "btnNormalExit";
+            this.btnNormalExit.Size = new System.Drawing.Size(157, 43);
+            this.btnNormalExit.TabIndex = 7;
+            this.btnNormalExit.Text = "Normal vehicle enters their paid chip coin";
+            this.btnNormalExit.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.vehicleArrive);
+            this.groupBox1.Controls.Add(this.btnVehicleEnters);
+            this.groupBox1.Controls.Add(this.btnEmergencyEntrance);
+            this.groupBox1.Controls.Add(this.btnPrepaidEntrance);
+            this.groupBox1.Controls.Add(this.btnNormalEntrance);
+            this.groupBox1.Controls.Add(this.btnVehicleArriveEntrance);
             this.groupBox1.Controls.Add(this.lblTicketMachine);
             this.groupBox1.Location = new System.Drawing.Point(20, 125);
             this.groupBox1.Name = "groupBox1";
@@ -460,50 +469,50 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Entrance simulator";
             // 
-            // button5
+            // btnVehicleEnters
             // 
-            this.button5.Location = new System.Drawing.Point(6, 248);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(157, 43);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnVehicleEnters.Location = new System.Drawing.Point(6, 248);
+            this.btnVehicleEnters.Name = "btnVehicleEnters";
+            this.btnVehicleEnters.Size = new System.Drawing.Size(157, 43);
+            this.btnVehicleEnters.TabIndex = 5;
+            this.btnVehicleEnters.Text = "Vehicle enters car park";
+            this.btnVehicleEnters.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnEmergencyEntrance
             // 
-            this.button4.Location = new System.Drawing.Point(6, 199);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(157, 43);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnEmergencyEntrance.Location = new System.Drawing.Point(6, 199);
+            this.btnEmergencyEntrance.Name = "btnEmergencyEntrance";
+            this.btnEmergencyEntrance.Size = new System.Drawing.Size(157, 43);
+            this.btnEmergencyEntrance.TabIndex = 4;
+            this.btnEmergencyEntrance.Text = "Emergency vehicle";
+            this.btnEmergencyEntrance.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnPrepaidEntrance
             // 
-            this.button3.Location = new System.Drawing.Point(6, 150);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(157, 43);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnPrepaidEntrance.Location = new System.Drawing.Point(6, 150);
+            this.btnPrepaidEntrance.Name = "btnPrepaidEntrance";
+            this.btnPrepaidEntrance.Size = new System.Drawing.Size(157, 43);
+            this.btnPrepaidEntrance.TabIndex = 3;
+            this.btnPrepaidEntrance.Text = "Prepaid vehicle enters their code";
+            this.btnPrepaidEntrance.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnNormalEntrance
             // 
-            this.button2.Location = new System.Drawing.Point(6, 101);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 43);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnNormalEntrance.Location = new System.Drawing.Point(6, 101);
+            this.btnNormalEntrance.Name = "btnNormalEntrance";
+            this.btnNormalEntrance.Size = new System.Drawing.Size(157, 43);
+            this.btnNormalEntrance.TabIndex = 2;
+            this.btnNormalEntrance.Text = "Normal vehicle gets chip coin";
+            this.btnNormalEntrance.UseVisualStyleBackColor = true;
             // 
-            // vehicleArrive
+            // btnVehicleArriveEntrance
             // 
-            this.vehicleArrive.Location = new System.Drawing.Point(6, 52);
-            this.vehicleArrive.Name = "vehicleArrive";
-            this.vehicleArrive.Size = new System.Drawing.Size(157, 43);
-            this.vehicleArrive.TabIndex = 1;
-            this.vehicleArrive.Text = "Vehicle arrives";
-            this.vehicleArrive.UseVisualStyleBackColor = true;
+            this.btnVehicleArriveEntrance.Location = new System.Drawing.Point(6, 52);
+            this.btnVehicleArriveEntrance.Name = "btnVehicleArriveEntrance";
+            this.btnVehicleArriveEntrance.Size = new System.Drawing.Size(157, 43);
+            this.btnVehicleArriveEntrance.TabIndex = 1;
+            this.btnVehicleArriveEntrance.Text = "Vehicle arrives at entrance";
+            this.btnVehicleArriveEntrance.UseVisualStyleBackColor = true;
             // 
             // lblTicketMachine
             // 
@@ -532,16 +541,63 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Car park - Arundel Gate";
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.lblEmergencyVehicles);
+            this.groupBox6.Controls.Add(this.label22);
+            this.groupBox6.Controls.Add(this.lblEmergencySign);
+            this.groupBox6.Controls.Add(this.label25);
+            this.groupBox6.Location = new System.Drawing.Point(6, 408);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(157, 84);
+            this.groupBox6.TabIndex = 15;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Emergency";
+            // 
+            // lblEmergencyVehicles
+            // 
+            this.lblEmergencyVehicles.BackColor = System.Drawing.Color.White;
+            this.lblEmergencyVehicles.Location = new System.Drawing.Point(75, 50);
+            this.lblEmergencyVehicles.Name = "lblEmergencyVehicles";
+            this.lblEmergencyVehicles.Size = new System.Drawing.Size(76, 23);
+            this.lblEmergencyVehicles.TabIndex = 14;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(16, 22);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(54, 13);
+            this.label22.TabIndex = 11;
+            this.label22.Text = "Emergecy";
+            // 
+            // lblEmergencySign
+            // 
+            this.lblEmergencySign.BackColor = System.Drawing.Color.White;
+            this.lblEmergencySign.Location = new System.Drawing.Point(75, 19);
+            this.lblEmergencySign.Name = "lblEmergencySign";
+            this.lblEmergencySign.Size = new System.Drawing.Size(76, 23);
+            this.lblEmergencySign.TabIndex = 12;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(1, 54);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(76, 13);
+            this.label25.TabIndex = 13;
+            this.label25.Text = "No of Vehicles";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 646);
-            this.Controls.Add(this.button14);
-            this.Controls.Add(this.button13);
-            this.Controls.Add(this.button15);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
+            this.Controls.Add(this.btnPayCash);
+            this.Controls.Add(this.btnPayCard);
+            this.Controls.Add(this.btnPayBitCoin);
+            this.Controls.Add(this.btnSecureAdvancePayment);
+            this.Controls.Add(this.btnToggleEmergency);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -562,6 +618,8 @@
             this.Entry.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -569,53 +627,58 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btnPayCash;
+        private System.Windows.Forms.Button btnPayCard;
+        private System.Windows.Forms.Button btnPayBitCoin;
+        private System.Windows.Forms.Button btnSecureAdvancePayment;
+        private System.Windows.Forms.Button btnToggleEmergency;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ListBox prepaidTickets;
+        private System.Windows.Forms.ListBox lstPrepaidTickets;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ListBox activeTickets;
+        private System.Windows.Forms.ListBox ltsActiveTickets;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblFloor0Spaces;
+        private System.Windows.Forms.Label lblFloor2Spaces;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblFloor1Spaces;
+        private System.Windows.Forms.Label lblFullSign;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnExitOverride;
+        private System.Windows.Forms.Label lblExitBarrier;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblExitSensor;
         private System.Windows.Forms.GroupBox Entry;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnBarrierOverride;
+        private System.Windows.Forms.Label lblEntryBarrier;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblEntrySensor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnVehicleExits;
         private System.Windows.Forms.Label lblTicketValidator;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button butVehicleArrivesExit;
+        private System.Windows.Forms.Button btnPrepaidExit;
+        private System.Windows.Forms.Button btnNormalExit;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button vehicleArrive;
+        private System.Windows.Forms.Button btnVehicleEnters;
+        private System.Windows.Forms.Button btnEmergencyEntrance;
+        private System.Windows.Forms.Button btnPrepaidEntrance;
+        private System.Windows.Forms.Button btnNormalEntrance;
+        private System.Windows.Forms.Button btnVehicleArriveEntrance;
         private System.Windows.Forms.Label lblTicketMachine;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label lblEmergencyVehicles;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lblEmergencySign;
+        private System.Windows.Forms.Label label25;
     }
 }
 
