@@ -71,7 +71,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.vehicleArrive = new System.Windows.Forms.Button();
             this.lblTicketMachine = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -451,7 +451,7 @@
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.vehicleArrive);
             this.groupBox1.Controls.Add(this.lblTicketMachine);
             this.groupBox1.Location = new System.Drawing.Point(20, 125);
             this.groupBox1.Name = "groupBox1";
@@ -496,14 +496,14 @@
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // vehicleArrive
             // 
-            this.button1.Location = new System.Drawing.Point(6, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 43);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.vehicleArrive.Location = new System.Drawing.Point(6, 52);
+            this.vehicleArrive.Name = "vehicleArrive";
+            this.vehicleArrive.Size = new System.Drawing.Size(157, 43);
+            this.vehicleArrive.TabIndex = 1;
+            this.vehicleArrive.Text = "Vehicle arrives";
+            this.vehicleArrive.UseVisualStyleBackColor = true;
             // 
             // lblTicketMachine
             // 
@@ -612,7 +612,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button vehicleArrive;
         private System.Windows.Forms.Label lblTicketMachine;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Label label1;
