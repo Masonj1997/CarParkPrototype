@@ -81,7 +81,7 @@ namespace WindowsFormsApp27
 
         private void DriverPrePaid(object sender, EventArgs e)
         {
-            ticketMachine.EnterPrePaidCode();
+            //ticketMachine.EnterPrePaidCode();
             UpdateDisplay();
         }
         private void EmergencyDriverEnter(object sender, EventArgs e)
