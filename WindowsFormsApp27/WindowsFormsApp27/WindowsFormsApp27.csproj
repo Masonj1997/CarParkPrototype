@@ -45,16 +45,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ActiveTickets.cs" />
+    <Compile Include="Barrier.cs" />
+    <Compile Include="CarPark.cs" />
+    <Compile Include="EntrySensor.cs" />
+    <Compile Include="ExitSensor.cs" />
+    <Compile Include="CarParkPrototype.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CarParkPrototype.Designer.cs">
+      <DependentUpon>CarParkPrototype.cs</DependentUpon>
     </Compile>
+    <Compile Include="FullSign.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Sensor.cs" />
+    <Compile Include="Ticket.cs" />
+    <Compile Include="TicketMachine.cs" />
+    <Compile Include="TicketValidator.cs" />
+    <EmbeddedResource Include="CarParkPrototype.resx">
+      <DependentUpon>CarParkPrototype.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
