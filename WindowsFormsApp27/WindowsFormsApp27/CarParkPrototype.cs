@@ -178,20 +178,5 @@ namespace WindowsFormsApp27
                 lstActiveTickets.Items.Add("#" + ticket.GetHashCode() + ": " + ticket.IsPaid());
             }
         }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnVehicleArriveEntrance_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

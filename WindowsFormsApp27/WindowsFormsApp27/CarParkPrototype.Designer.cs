@@ -100,6 +100,7 @@
             this.btnPayCash.TabIndex = 22;
             this.btnPayCash.Text = "Pay cash";
             this.btnPayCash.UseVisualStyleBackColor = true;
+            this.btnPayCash.Click += new System.EventHandler(this.btnPayTicket_Click);
             // 
             // btnPayCard
             // 
@@ -110,6 +111,7 @@
             this.btnPayCard.TabIndex = 21;
             this.btnPayCard.Text = "Pay Card";
             this.btnPayCard.UseVisualStyleBackColor = true;
+            this.btnPayCard.Click += new System.EventHandler(this.btnPayTicket_Click);
             // 
             // btnPayBitCoin
             // 
@@ -120,6 +122,7 @@
             this.btnPayBitCoin.TabIndex = 20;
             this.btnPayBitCoin.Text = "Pay Bit Coin";
             this.btnPayBitCoin.UseVisualStyleBackColor = true;
+            this.btnPayBitCoin.Click += new System.EventHandler(this.btnPayTicket_Click);
             // 
             // btnSecureAdvancePayment
             // 
@@ -199,7 +202,6 @@
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Internal data";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // groupBox6
             // 
@@ -320,7 +322,6 @@
             this.label11.Size = new System.Drawing.Size(60, 17);
             this.label11.TabIndex = 11;
             this.label11.Text = "Full sign";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // lblFloor1Spaces
             // 
@@ -504,6 +505,7 @@
             this.btnVehicleExits.TabIndex = 10;
             this.btnVehicleExits.Text = "Vehicle exits car park";
             this.btnVehicleExits.UseVisualStyleBackColor = true;
+            this.btnVehicleExits.Click += new System.EventHandler(this.CarExitsCarPark);
             // 
             // lblTicketValidator
             // 
@@ -533,6 +535,7 @@
             this.btnVehicleArrivesExit.TabIndex = 6;
             this.btnVehicleArrivesExit.Text = "Vehicle arrives at exit";
             this.btnVehicleArrivesExit.UseVisualStyleBackColor = true;
+            this.btnVehicleArrivesExit.Click += new System.EventHandler(this.CarArrivesAtExit);
             // 
             // btnPrepaidExit
             // 
@@ -553,6 +556,7 @@
             this.btnNormalExit.TabIndex = 7;
             this.btnNormalExit.Text = "Normal vehicle enters their paid chip coin";
             this.btnNormalExit.UseVisualStyleBackColor = true;
+            this.btnNormalExit.Click += new System.EventHandler(this.DriverEntersTicket);
             // 
             // groupBox1
             // 
@@ -580,6 +584,7 @@
             this.btnVehicleEnters.TabIndex = 5;
             this.btnVehicleEnters.Text = "Vehicle enters car park";
             this.btnVehicleEnters.UseVisualStyleBackColor = true;
+            this.btnVehicleEnters.Click += new System.EventHandler(this.CarEntersCarPark);
             // 
             // btnEmergencyEntrance
             // 
@@ -610,6 +615,7 @@
             this.btnNormalEntrance.TabIndex = 2;
             this.btnNormalEntrance.Text = "Normal vehicle gets chip coin";
             this.btnNormalEntrance.UseVisualStyleBackColor = true;
+            this.btnNormalEntrance.Click += new System.EventHandler(this.DriverPressesForTicket);
             // 
             // btnVehicleArrivesEntrance
             // 
@@ -620,7 +626,7 @@
             this.btnVehicleArrivesEntrance.TabIndex = 1;
             this.btnVehicleArrivesEntrance.Text = "Vehicle arrives at entrance";
             this.btnVehicleArrivesEntrance.UseVisualStyleBackColor = true;
-            this.btnVehicleArrivesEntrance.Click += new System.EventHandler(this.btnVehicleArriveEntrance_Click);
+            this.btnVehicleArrivesEntrance.Click += new System.EventHandler(this.CarArrivesAtEntrance);
             // 
             // lblTicketMachine
             // 
@@ -640,6 +646,7 @@
             this.btnReset.TabIndex = 12;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.ResetSystem);
             // 
             // label1
             // 

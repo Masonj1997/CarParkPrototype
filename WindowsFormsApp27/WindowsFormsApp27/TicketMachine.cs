@@ -9,9 +9,8 @@ namespace WindowsFormsApp27
     class TicketMachine
     {
         private string message;
-        //private EntrySensor entry;
-        private ActiveTickets activeTickets;
         private CarPark carPark;
+        private ActiveTickets activeTickets;
 
         public TicketMachine(ActiveTickets activeTickets)
         {
@@ -30,8 +29,9 @@ namespace WindowsFormsApp27
 
         public void PrintTicket()
         {
-            message = "Thank you, enjoy your stay.";
+            message = "Please park in space: " + Convert.ToString((carPark.GetMaxSpaces() - carPark.GetCurrentSpaces()) + 1);
             activeTickets.AddTicket();
+            carPark.TicketDispensed(); ;
         }
 
         public void ClearMessage()
@@ -45,3 +45,4 @@ namespace WindowsFormsApp27
         }
     }
 }
+

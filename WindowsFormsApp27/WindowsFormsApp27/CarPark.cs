@@ -98,5 +98,9 @@ namespace WindowsFormsApp27
         {
             return currentSpaces;
         }
+        public int GetMaxSpaces()
+        {
+            return maxSpace;
+        }
     }
 }
