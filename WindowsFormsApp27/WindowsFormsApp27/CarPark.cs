@@ -10,6 +10,8 @@ namespace WindowsFormsApp27
     {
         //Attributes
         private int currentSpaces;
+        private int currentPrePaidSpaces;
+        private int maxPrePaid = 5;
         private int maxSpace = 5;
         private EntrySensor entry;
         private TicketMachine ticketMachine;
@@ -27,6 +29,7 @@ namespace WindowsFormsApp27
             this.entryBarrier = entryBarrier;
             this.exitBarrier = exitBarrier;
             currentSpaces = maxSpace;
+            currentPrePaidSpaces = maxPrePaid;
             this.entry = new EntrySensor(this);
         }
 
@@ -101,6 +104,14 @@ namespace WindowsFormsApp27
         public int GetMaxSpaces()
         {
             return maxSpace;
+        }
+        public int GetCurrentPrePaidSpaces()
+        {
+            return currentPrePaidSpaces;
+        }
+        public int GetMaxPrePaidSpaces()
+        {
+            return maxPrePaid;
         }
     }
 }

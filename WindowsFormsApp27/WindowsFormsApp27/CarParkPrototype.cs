@@ -16,6 +16,7 @@ namespace WindowsFormsApp27
         // Attributes ///        
         private TicketMachine ticketMachine;
         private ActiveTickets activeTickets;
+        private ActivePrePaid activePrePaidTickets;
         private TicketValidator ticketValidator;
         private Barrier entryBarrier;
         private Barrier exitBarrier;
@@ -73,6 +74,17 @@ namespace WindowsFormsApp27
         }
 
         private void DriverPressesForTicket(object sender, EventArgs e)
+        {
+            ticketMachine.PrintTicket();
+            UpdateDisplay();
+        }
+
+        private void DriverPrePaid(object sender, EventArgs e)
+        {
+            ticketMachine.EnterPrePaidCode();
+            UpdateDisplay();
+        }
+        private void EmergencyDriverEnter(object sender, EventArgs e)
         {
             ticketMachine.PrintTicket();
             UpdateDisplay();

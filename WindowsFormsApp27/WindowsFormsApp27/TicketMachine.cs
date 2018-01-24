@@ -11,6 +11,7 @@ namespace WindowsFormsApp27
         private string message;
         private CarPark carPark;
         private ActiveTickets activeTickets;
+        private ActivePrePaid activePrepaid;
 
         public TicketMachine(ActiveTickets activeTickets)
         {
@@ -28,6 +29,13 @@ namespace WindowsFormsApp27
         }
 
         public void PrintTicket()
+        {
+            message = "Please park in space: " + Convert.ToString((carPark.GetMaxSpaces() - carPark.GetCurrentSpaces()) + 1);
+            activeTickets.AddTicket();
+            carPark.TicketDispensed(); ;
+        }
+
+        public void PrintPrePaidTicket()
         {
             message = "Please park in space: " + Convert.ToString((carPark.GetMaxSpaces() - carPark.GetCurrentSpaces()) + 1);
             activeTickets.AddTicket();
