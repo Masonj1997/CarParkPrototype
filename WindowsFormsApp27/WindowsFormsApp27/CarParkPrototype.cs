@@ -59,6 +59,8 @@ namespace WindowsFormsApp27
             btnVehicleArrivesExit.Visible = false;
             btnNormalExit.Visible = false;
             btnVehicleExits.Visible = false;
+            btnEmergencyEntrance.Visible = false;
+            btnEmergencyExit.Visible = false;
 
             lblTicketMachine.Text = "";
             lblTicketValidator.Text = "";
@@ -75,6 +77,7 @@ namespace WindowsFormsApp27
 
         private void DriverPressesForTicket(object sender, EventArgs e)
         {
+            ticketMachine.SpacesMessage();
             ticketMachine.PrintTicket();
             UpdateDisplay();
         }
@@ -133,6 +136,8 @@ namespace WindowsFormsApp27
 
         private void UpdateDisplay()
         {
+            lblEmergencyVehicles.Text = Convert.ToString(carPark.GetNoEmergVehicles());
+            lblEmergencySign.Text = Convert.ToString(value: carPark.emergency);
             lblEntrySensor.Text = Convert.ToString(entrySensor.isCarOnSensor());
             lblEntryBarrier.Text = Convert.ToString(entryBarrier.IsLifted());
             lblExitSensor.Text = Convert.ToString(exitSensor.isCarOnSensor());
@@ -143,16 +148,17 @@ namespace WindowsFormsApp27
             lblTicketValidator.Text = Convert.ToString(ticketValidator.GetMessage());
             lstActiveTickets.Items.Clear();
 
-            if (!carPark.IsFull())
+            if (carPark.emergency)
             {
                 if (entrySensor.isCarOnSensor() && entryBarrier.IsLifted())
                 {
                     btnVehicleEnters.Visible = true;
                     btnNormalEntrance.Visible = false;
+                    btnEmergencyEntrance.Visible = false;
                 }
                 else if (entrySensor.isCarOnSensor())
                 {
-                    btnNormalEntrance.Visible = true;
+                    btnEmergencyEntrance.Visible = true;
                     btnVehicleArrivesEntrance.Visible = false;
                 }
                 else
@@ -162,24 +168,52 @@ namespace WindowsFormsApp27
                 }
             }
             else
-                btnVehicleEnters.Visible = false;
+            {
+                if (!carPark.IsFull())
+                {
+                    if (entrySensor.isCarOnSensor() && entryBarrier.IsLifted())
+                    {
+                        btnVehicleEnters.Visible = true;
+                        btnNormalEntrance.Visible = false;
+                        btnEmergencyEntrance.Visible = false;
+                    }
+                    else if (entrySensor.isCarOnSensor())
+                    {
+                        btnNormalEntrance.Visible = true;
+                        btnVehicleArrivesEntrance.Visible = false;
+                        btnEmergencyEntrance.Visible = true;
+                    }
+                    else
+                    {
+                        btnVehicleArrivesEntrance.Visible = true;
+                        btnVehicleEnters.Visible = false;
+                    }
+                }
+                else
+                    btnVehicleEnters.Visible = false;
+            }
 
-            if (!carPark.IsEmpty())
+                if (!carPark.IsEmpty())
             {
                 if (exitSensor.isCarOnSensor() && exitBarrier.IsLifted())
                 {
                     btnVehicleExits.Visible = true;
                     btnNormalExit.Visible = false;
+                    btnEmergencyExit.Visible = false;
                 }
                 else if (exitSensor.isCarOnSensor())
                 {
-                    btnNormalExit.Visible = true;
+                    if (carPark.emergency)
+                        btnEmergencyExit.Visible = true;
+                    else
+                        btnNormalExit.Visible = true;
                     btnVehicleArrivesExit.Visible = false;
                 }
                 else
                 {
                     btnVehicleArrivesExit.Visible = true;
                     btnVehicleExits.Visible = false;
+                    btnEmergencyExit.Visible = false;
                 }
             }
             else
@@ -189,6 +223,54 @@ namespace WindowsFormsApp27
             {
                 lstActiveTickets.Items.Add("#" + ticket.GetHashCode() + ": " + ticket.IsPaid());
             }
+        }
+
+        private void btnToggleEmergency_Click(object sender, EventArgs e)
+        {
+            carPark.IsEmergency();
+            UpdateDisplay();
+        }
+
+        private void btnEmergencyEntrance_Click(object sender, EventArgs e)
+        {
+
+            if (carPark.emergency == false)
+            {
+                ticketMachine.SpacesMessage();
+                ticketMachine.PrintTicket();
+            }
+            else
+            {
+                ticketMachine.ClearMessage();
+                entryBarrier.Raise();
+                UpdateDisplay();
+            }
+            UpdateDisplay();
+        }
+
+        private void lblEmergencySign_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEmergencyPay_Click(object sender, EventArgs e)
+        {
+
+            int ticketNo = Convert.ToInt32(Interaction.InputBox("Please enter the ticket number of the ticket you wish to pay: ", "Pay Ticket", "0"));
+            //Ticket is valid if the entered ticket number matches an existing ticket and said ticket hasn't already been paid for
+            if (ticketValidator.PayTicket(ticketNo))
+                MessageBox.Show("Ticket has been successfully paid for!");
+            else
+                MessageBox.Show("ERROR: Ticket number invalid!");
+
+            UpdateDisplay();
+        }
+
+        private void btnEmergencyExit_Click(object sender, EventArgs e)
+        {
+            ticketValidator.ClearMessage();
+            exitBarrier.Raise();
+            UpdateDisplay();
         }
     }
 }
