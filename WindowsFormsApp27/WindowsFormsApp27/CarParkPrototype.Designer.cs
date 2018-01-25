@@ -82,6 +82,7 @@
             this.lblTicketMachine = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnEmergencyPay = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -128,10 +129,10 @@
             // 
             // btnSecureAdvancePayment
             // 
-            this.btnSecureAdvancePayment.Location = new System.Drawing.Point(899, 94);
+            this.btnSecureAdvancePayment.Location = new System.Drawing.Point(898, 60);
             this.btnSecureAdvancePayment.Margin = new System.Windows.Forms.Padding(4);
             this.btnSecureAdvancePayment.Name = "btnSecureAdvancePayment";
-            this.btnSecureAdvancePayment.Size = new System.Drawing.Size(276, 50);
+            this.btnSecureAdvancePayment.Size = new System.Drawing.Size(278, 39);
             this.btnSecureAdvancePayment.TabIndex = 19;
             this.btnSecureAdvancePayment.Text = "Secure parking advance payment";
             this.btnSecureAdvancePayment.UseVisualStyleBackColor = true;
@@ -139,13 +140,15 @@
             // 
             // btnToggleEmergency
             // 
-            this.btnToggleEmergency.Location = new System.Drawing.Point(899, 36);
+            this.btnToggleEmergency.BackColor = System.Drawing.Color.Red;
+            this.btnToggleEmergency.Location = new System.Drawing.Point(899, 15);
             this.btnToggleEmergency.Margin = new System.Windows.Forms.Padding(4);
             this.btnToggleEmergency.Name = "btnToggleEmergency";
-            this.btnToggleEmergency.Size = new System.Drawing.Size(277, 50);
+            this.btnToggleEmergency.Size = new System.Drawing.Size(277, 39);
             this.btnToggleEmergency.TabIndex = 18;
             this.btnToggleEmergency.Text = "Emergency";
-            this.btnToggleEmergency.UseVisualStyleBackColor = true;
+            this.btnToggleEmergency.UseVisualStyleBackColor = false;
+            this.btnToggleEmergency.Click += new System.EventHandler(this.btnToggleEmergency_Click);
             // 
             // groupBox5
             // 
@@ -540,6 +543,7 @@
             this.btnEmergencyExit.TabIndex = 9;
             this.btnEmergencyExit.Text = "Emergency vehicle";
             this.btnEmergencyExit.UseVisualStyleBackColor = true;
+            this.btnEmergencyExit.Click += new System.EventHandler(this.btnEmergencyExit_Click);
             // 
             // btnVehicleArrivesExit
             // 
@@ -623,6 +627,7 @@
             this.btnEmergencyEntrance.TabIndex = 4;
             this.btnEmergencyEntrance.Text = "Emergency vehicle";
             this.btnEmergencyEntrance.UseVisualStyleBackColor = true;
+            this.btnEmergencyEntrance.Click += new System.EventHandler(this.btnEmergencyEntrance_Click);
             // 
             // btnPrePaidEntrance
             // 
@@ -688,11 +693,23 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Car park - Arundel Gate";
             // 
+            // btnEmergencyPay
+            // 
+            this.btnEmergencyPay.Location = new System.Drawing.Point(899, 106);
+            this.btnEmergencyPay.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmergencyPay.Name = "btnEmergencyPay";
+            this.btnEmergencyPay.Size = new System.Drawing.Size(277, 39);
+            this.btnEmergencyPay.TabIndex = 23;
+            this.btnEmergencyPay.Text = "Pay Emergency Vehicle";
+            this.btnEmergencyPay.UseVisualStyleBackColor = true;
+            this.btnEmergencyPay.Click += new System.EventHandler(this.btnEmergencyPay_Click);
+            // 
             // CarParkPrototype
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1292, 795);
+            this.Controls.Add(this.btnEmergencyPay);
             this.Controls.Add(this.btnPayCash);
             this.Controls.Add(this.btnPayCard);
             this.Controls.Add(this.btnPayBitCoin);
@@ -782,6 +799,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button btnPrePaidEnters;
         private System.Windows.Forms.Button btnPrePaidExits;
+        private System.Windows.Forms.Button btnEmergencyPay;
     }
 }
 

@@ -204,9 +204,57 @@ namespace WindowsFormsApp27
         }
 
 
+        ///////////////////////////////////////////////////////////////////////////
+        private void btnToggleEmergency_Click(object sender, EventArgs e)
+        {
+            carPark.IsEmergency();
+            UpdateDisplay();
+        }
+
+        private void btnEmergencyEntrance_Click(object sender, EventArgs e)
+        {
+
+            if (carPark.emergency == false)
+            {
+                ticketMachine.SpacesMessage();
+                ticketMachine.PrintTicket();
+            }
+            else
+            {
+                ticketMachine.ClearMessage();
+                entryBarrier.Raise();
+                UpdateDisplay();
+            }
+            UpdateDisplay();
+        }
+
+
+        private void btnEmergencyPay_Click(object sender, EventArgs e)
+        {
+
+            int ticketNo = Convert.ToInt32(Interaction.InputBox("Please enter the ticket number of the ticket you wish to pay: ", "Pay Ticket", "0"));
+            //Ticket is valid if the entered ticket number matches an existing ticket and said ticket hasn't already been paid for
+            if (ticketValidator.PayTicket(ticketNo))
+                MessageBox.Show("Ticket has been successfully paid for!");
+            else
+                MessageBox.Show("ERROR: Ticket number invalid!");
+
+            UpdateDisplay();
+        }
+
+        private void btnEmergencyExit_Click(object sender, EventArgs e)
+        {
+            ticketValidator.ClearMessage();
+            exitBarrier.Raise();
+            UpdateDisplay();
+        }
+
+
 
         private void UpdateDisplay()
         {
+            lblEmergencyVehicles.Text = Convert.ToString(carPark.GetNoEmergVehicles());
+            lblEmergencySign.Text = Convert.ToString(value: carPark.emergency);
             lblEntrySensor.Text = Convert.ToString(entrySensor.isCarOnSensor());
             lblEntryBarrier.Text = Convert.ToString(entryBarrier.IsLifted());
             lblExitSensor.Text = Convert.ToString(exitSensor.isCarOnSensor());
