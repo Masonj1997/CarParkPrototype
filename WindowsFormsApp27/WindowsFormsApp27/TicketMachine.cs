@@ -26,12 +26,16 @@ namespace WindowsFormsApp27
 
         public void CarArrived()
         {
-            message = "Please press to get a ticket.";
+            if (carPark.emergency == false)
+                message = "Please press to get a ticket.";
         }
-
-        public void PrintTicket()
+        public void SpacesMessage()
         {
             message = "Please park in space: " + Convert.ToString((carPark.GetMaxSpaces() - carPark.GetCurrentSpaces()) + 1);
+        }
+        public void PrintTicket()
+        {
+            
             activeTickets.AddTicket();
             carPark.TicketDispensed(); 
         }

@@ -14,12 +14,14 @@ namespace WindowsFormsApp27
         private int currentPrePaidTickets;
         private int maxPrePaid = 5;
         private int maxSpace = 5;
+        private int emergVehicleNo = 0;
         private EntrySensor entry;
         private TicketMachine ticketMachine;
         private TicketValidator ticketValidator;
         private FullSign fullSign;
         private Barrier entryBarrier;
         private Barrier exitBarrier;
+        public bool emergency = false;
 
         //Constructor
         public CarPark(TicketMachine ticketMachine, TicketValidator ticketValidator, FullSign fullSign, Barrier entryBarrier, Barrier exitBarrier)
@@ -35,6 +37,15 @@ namespace WindowsFormsApp27
         }
 
         //Methods
+        public void IsEmergency()
+        {
+
+            if (emergency == false)
+            { emergency = true; }
+            else if (emergency == true)
+            { emergency = false; }
+        }
+
         public void CarArrivedAtEntrance()
         {
             ticketMachine.CarArrived();
@@ -50,9 +61,17 @@ namespace WindowsFormsApp27
             entryBarrier.Raise();
         }
 
+        public void EmergencyEntry()
+        {
+            entryBarrier.Raise();
+        }
+
         public void CarEnteredCarPark()
         {
-            currentSpaces--;
+            if (!emergency)
+                currentSpaces--;
+            else
+                emergVehicleNo++;
             if (currentSpaces == 0)
                 fullSign.SetLit(true);
             else
@@ -70,7 +89,9 @@ namespace WindowsFormsApp27
 
         public void CarArrivedAtExit()
         {
-            ticketValidator.CarArrived();
+            if(!emergency)
+                ticketValidator.CarArrived();
+
         }
 
         public void TicketValidated()
@@ -80,10 +101,18 @@ namespace WindowsFormsApp27
 
         public void CarExitedCarPark()
         {
-            fullSign.SetLit(false);
-            exitBarrier.Lower();
-            ticketValidator.ClearMessage();
-            currentSpaces++;
+            if (!emergency)
+            {
+                fullSign.SetLit(false);
+                exitBarrier.Lower();
+                ticketValidator.ClearMessage();
+                currentSpaces++;
+            }
+            else
+            {
+                emergVehicleNo--;
+                exitBarrier.Lower();
+            }
         }
 
         public void PrePaidCarExitedCarPark()
@@ -132,6 +161,10 @@ namespace WindowsFormsApp27
         public int GetMaxPrePaidSpaces()
         {
             return maxPrePaid;
+        }
+        public int GetNoEmergVehicles()
+        {
+            return emergVehicleNo;
         }
         public int GetCurrentPrePaidTickets()
         {
