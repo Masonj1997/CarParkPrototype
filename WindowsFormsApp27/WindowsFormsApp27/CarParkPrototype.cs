@@ -267,20 +267,18 @@ namespace WindowsFormsApp27
             lstActiveTickets.Items.Clear();
             lstPrePaidTickets.Items.Clear();
 
-            if (!carPark.IsFull())
+            if (carPark.emergency)
             {
                 if (entrySensor.isCarOnSensor() && entryBarrier.IsLifted())
                 {
                     btnVehicleEnters.Visible = true;
-                    btnPrePaidEnters.Visible = true;
+                    btnPrePaidEnters.Visible = false;
                     btnNormalEntrance.Visible = false;
                     btnPrePaidEntrance.Visible = false;
                     btnEmergencyEntrance.Visible = false;
                 }
                 else if (entrySensor.isCarOnSensor())
                 {
-                    btnNormalEntrance.Visible = true;
-                    btnPrePaidEntrance.Visible = true;
                     btnEmergencyEntrance.Visible = true;
                     btnVehicleArrivesEntrance.Visible = false;
                 }
@@ -293,8 +291,37 @@ namespace WindowsFormsApp27
             }
             else
             {
-                btnVehicleEnters.Visible = false;
-                btnPrePaidEnters.Visible = false;
+                
+                    if (!carPark.IsFull())
+                    {
+                        if (entrySensor.isCarOnSensor() && entryBarrier.IsLifted())
+                        {
+                            btnVehicleEnters.Visible = true;
+                            btnPrePaidEnters.Visible = false;
+                            btnNormalEntrance.Visible = false;
+                            btnPrePaidEntrance.Visible = false;
+                            btnEmergencyEntrance.Visible = false;
+                        }
+                        else if (entrySensor.isCarOnSensor())
+                        {
+                            btnPrePaidEntrance.Visible = true;
+                            btnNormalEntrance.Visible = true;
+                            btnVehicleArrivesEntrance.Visible = false;
+                            btnEmergencyEntrance.Visible = true;
+                        }
+                        else
+                        {
+
+                            btnVehicleArrivesEntrance.Visible = true;
+                            btnVehicleEnters.Visible = false;
+                            btnPrePaidEnters.Visible = false;
+                        }
+                    }
+                    else
+                        btnVehicleEnters.Visible = false;
+                
+                //btnVehicleEnters.Visible = false;
+               // btnPrePaidEnters.Visible = false;
             }                  
             
 
@@ -302,17 +329,27 @@ namespace WindowsFormsApp27
             {
                 if (exitSensor.isCarOnSensor() && exitBarrier.IsLifted())
                 {
-                    btnVehicleExits.Visible = true;
-                    btnPrePaidExits.Visible = true;
-                    btnNormalExit.Visible = false;
+
+                    if (carPark.emergency)
+                        btnVehicleExits.Visible = true;
+                    else
+                    {
+                        btnVehicleExits.Visible = true;
+                        btnPrePaidExits.Visible = true;
+                    }
+                        btnNormalExit.Visible = false;
                     btnPrePaidExit.Visible = false;
                     btnEmergencyExit.Visible = false;
                 }
                 else if (exitSensor.isCarOnSensor())
                 {
-                    btnNormalExit.Visible = true;
-                    btnPrePaidExit.Visible = true;
-                    btnEmergencyExit.Visible = true;
+                    if (!carPark.emergency)
+                    {
+                        btnNormalExit.Visible = true;
+                        btnPrePaidExit.Visible = true;
+                    }
+                    else
+                        btnEmergencyExit.Visible = true;
                     btnVehicleArrivesExit.Visible = false;
                 }
                 else
