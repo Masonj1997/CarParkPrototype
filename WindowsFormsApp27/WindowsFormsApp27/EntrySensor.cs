@@ -21,5 +21,11 @@ namespace WindowsFormsApp27
             carPark.CarEnteredCarPark();
             this.carOnSensor = false;
         }
+
+        public void PrePaidCarLeftSensor()
+        {
+            carPark.PrePaidCarEnteredCarPark();
+            this.carOnSensor = false;
+        }
     }
 }

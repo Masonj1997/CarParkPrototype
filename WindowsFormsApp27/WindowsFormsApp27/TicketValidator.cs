@@ -10,11 +10,13 @@ namespace WindowsFormsApp27
     {
         private string message;
         private ActiveTickets activeTickets;
+        private ActivePrePaid activePrePaidTickets;
         private CarPark carPark;
 
-        public TicketValidator(ActiveTickets activeTickets)
-        {
+        public TicketValidator(ActiveTickets activeTickets, ActivePrePaid activePrePaidTickets)
+        {            
             this.activeTickets = activeTickets;
+            this.activePrePaidTickets = activePrePaidTickets;
         }
         public void AssignCarPark(CarPark carPark)
         {
@@ -41,9 +43,19 @@ namespace WindowsFormsApp27
             }
 
         }
+
+        public void PrePaidCodeEntered(int ticketNo)
+        {
+            activePrePaidTickets.RemoveTicket(ticketNo);
+        }
+
+        public bool EnterPrePaidCode(int ticketNo)
+        {
+            return activePrePaidTickets.CheckTicket(ticketNo);
+        }
         public bool PayTicket(int ticketNo)
         {
-            return activeTickets.PayTicket(ticketNo);
+            return activeTickets.PayTicket(ticketNo) || activePrePaidTickets.PayTicket(ticketNo);
         }
 
         public void ClearMessage()

@@ -11,11 +11,12 @@ namespace WindowsFormsApp27
         private string message;
         private CarPark carPark;
         private ActiveTickets activeTickets;
-        private ActivePrePaid activePrepaid;
+        private ActivePrePaid activePrePaidTickets;
 
-        public TicketMachine(ActiveTickets activeTickets)
+        public TicketMachine(ActiveTickets activeTickets, ActivePrePaid activePrePaidTickets)
         {
             this.activeTickets = activeTickets;
+            this.activePrePaidTickets = activePrePaidTickets;
         }
 
         public void AssignCarPark(CarPark carPark)
@@ -32,14 +33,19 @@ namespace WindowsFormsApp27
         {
             message = "Please park in space: " + Convert.ToString((carPark.GetMaxSpaces() - carPark.GetCurrentSpaces()) + 1);
             activeTickets.AddTicket();
-            carPark.TicketDispensed(); ;
+            carPark.TicketDispensed(); 
+        }
+
+        public void PrePaidChecked()
+        {
+            message = "Please park on floor 2 in space: " + Convert.ToString((carPark.GetMaxPrePaidSpaces() - carPark.GetCurrentPrePaidSpaces()) + 1);
+            carPark.PrePaidChecked();
         }
 
         public void PrintPrePaidTicket()
         {
-            message = "Please park in space: " + Convert.ToString((carPark.GetMaxSpaces() - carPark.GetCurrentSpaces()) + 1);
-            activeTickets.AddTicket();
-            carPark.TicketDispensed(); ;
+            activePrePaidTickets.AddTicket();
+            carPark.AddPrePaidTicket();
         }
 
         public void ClearMessage()
@@ -51,6 +57,8 @@ namespace WindowsFormsApp27
         {
             return message;
         }
-    }
+
+        
+    }    
 }
 

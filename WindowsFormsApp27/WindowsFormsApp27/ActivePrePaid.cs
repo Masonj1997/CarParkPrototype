@@ -41,9 +41,41 @@ namespace WindowsFormsApp27
             return false;
         }
 
-        public void RemoveTicket()
+        public bool InCarPark(int ticketNo)
         {
-            PrePaidTickets.RemoveAt(0);
+            foreach (Ticket ticket in PrePaidTickets)
+            {
+                if (ticket.GetHashCode() == ticketNo && !ticket.InCarPark())
+                { 
+                    ticket.SetInCarPark(true);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void RemoveTicket(int ticketNo)
+        {
+            foreach (Ticket ticket in PrePaidTickets)
+            {
+                if (ticket.GetHashCode() == ticketNo)
+                {
+                    PrePaidTickets.Remove(ticket);
+                    return;
+                }
+            }
+        }
+
+        public bool CheckTicket(int ticketNo)
+        {
+            foreach (Ticket ticket in PrePaidTickets)
+            {
+                if (ticket.GetHashCode() == ticketNo)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

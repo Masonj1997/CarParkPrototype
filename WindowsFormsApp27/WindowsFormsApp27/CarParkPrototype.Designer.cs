@@ -34,7 +34,7 @@
             this.btnSecureAdvancePayment = new System.Windows.Forms.Button();
             this.btnToggleEmergency = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.lstPrepaidTickets = new System.Windows.Forms.ListBox();
+            this.lstPrePaidTickets = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lstActiveTickets = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -65,16 +65,18 @@
             this.lblEntrySensor = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPrePaidExits = new System.Windows.Forms.Button();
             this.btnVehicleExits = new System.Windows.Forms.Button();
             this.lblTicketValidator = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnEmergencyExit = new System.Windows.Forms.Button();
             this.btnVehicleArrivesExit = new System.Windows.Forms.Button();
-            this.btnPrepaidExit = new System.Windows.Forms.Button();
+            this.btnPrePaidExit = new System.Windows.Forms.Button();
             this.btnNormalExit = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPrePaidEnters = new System.Windows.Forms.Button();
             this.btnVehicleEnters = new System.Windows.Forms.Button();
             this.btnEmergencyEntrance = new System.Windows.Forms.Button();
-            this.btnPrepaidEntrance = new System.Windows.Forms.Button();
+            this.btnPrePaidEntrance = new System.Windows.Forms.Button();
             this.btnNormalEntrance = new System.Windows.Forms.Button();
             this.btnVehicleArrivesEntrance = new System.Windows.Forms.Button();
             this.lblTicketMachine = new System.Windows.Forms.Label();
@@ -98,7 +100,7 @@
             this.btnPayCash.Name = "btnPayCash";
             this.btnPayCash.Size = new System.Drawing.Size(249, 39);
             this.btnPayCash.TabIndex = 22;
-            this.btnPayCash.Text = "Pay cash";
+            this.btnPayCash.Text = "Pay Cash";
             this.btnPayCash.UseVisualStyleBackColor = true;
             this.btnPayCash.Click += new System.EventHandler(this.btnPayTicket_Click);
             // 
@@ -133,6 +135,7 @@
             this.btnSecureAdvancePayment.TabIndex = 19;
             this.btnSecureAdvancePayment.Text = "Secure parking advance payment";
             this.btnSecureAdvancePayment.UseVisualStyleBackColor = true;
+            this.btnSecureAdvancePayment.Click += new System.EventHandler(this.btnSecureAdvancePayment_Click);
             // 
             // btnToggleEmergency
             // 
@@ -146,7 +149,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.lstPrepaidTickets);
+            this.groupBox5.Controls.Add(this.lstPrePaidTickets);
             this.groupBox5.Location = new System.Drawing.Point(960, 178);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
@@ -156,15 +159,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Prepaid tickets";
             // 
-            // lstPrepaidTickets
+            // lstPrePaidTickets
             // 
-            this.lstPrepaidTickets.FormattingEnabled = true;
-            this.lstPrepaidTickets.ItemHeight = 16;
-            this.lstPrepaidTickets.Location = new System.Drawing.Point(9, 23);
-            this.lstPrepaidTickets.Margin = new System.Windows.Forms.Padding(4);
-            this.lstPrepaidTickets.Name = "lstPrepaidTickets";
-            this.lstPrepaidTickets.Size = new System.Drawing.Size(207, 532);
-            this.lstPrepaidTickets.TabIndex = 0;
+            this.lstPrePaidTickets.FormattingEnabled = true;
+            this.lstPrePaidTickets.ItemHeight = 16;
+            this.lstPrePaidTickets.Location = new System.Drawing.Point(9, 23);
+            this.lstPrePaidTickets.Margin = new System.Windows.Forms.Padding(4);
+            this.lstPrePaidTickets.Name = "lstPrePaidTickets";
+            this.lstPrePaidTickets.Size = new System.Drawing.Size(207, 532);
+            this.lstPrePaidTickets.TabIndex = 0;
             // 
             // groupBox4
             // 
@@ -481,11 +484,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPrePaidExits);
             this.groupBox2.Controls.Add(this.btnVehicleExits);
             this.groupBox2.Controls.Add(this.lblTicketValidator);
-            this.groupBox2.Controls.Add(this.button7);
+            this.groupBox2.Controls.Add(this.btnEmergencyExit);
             this.groupBox2.Controls.Add(this.btnVehicleArrivesExit);
-            this.groupBox2.Controls.Add(this.btnPrepaidExit);
+            this.groupBox2.Controls.Add(this.btnPrePaidExit);
             this.groupBox2.Controls.Add(this.btnNormalExit);
             this.groupBox2.Location = new System.Drawing.Point(260, 154);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
@@ -495,6 +499,17 @@
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Exit simulator";
+            // 
+            // btnPrePaidExits
+            // 
+            this.btnPrePaidExits.Location = new System.Drawing.Point(8, 366);
+            this.btnPrePaidExits.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrePaidExits.Name = "btnPrePaidExits";
+            this.btnPrePaidExits.Size = new System.Drawing.Size(209, 53);
+            this.btnPrePaidExits.TabIndex = 11;
+            this.btnPrePaidExits.Text = "Pre paid vehicle exits car park";
+            this.btnPrePaidExits.UseVisualStyleBackColor = true;
+            this.btnPrePaidExits.Click += new System.EventHandler(this.PrePaidCarExitsCarPark);
             // 
             // btnVehicleExits
             // 
@@ -516,15 +531,15 @@
             this.lblTicketValidator.Size = new System.Drawing.Size(209, 41);
             this.lblTicketValidator.TabIndex = 1;
             // 
-            // button7
+            // btnEmergencyExit
             // 
-            this.button7.Location = new System.Drawing.Point(8, 245);
-            this.button7.Margin = new System.Windows.Forms.Padding(4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(209, 53);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "Emergency vehicle";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnEmergencyExit.Location = new System.Drawing.Point(8, 245);
+            this.btnEmergencyExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmergencyExit.Name = "btnEmergencyExit";
+            this.btnEmergencyExit.Size = new System.Drawing.Size(209, 53);
+            this.btnEmergencyExit.TabIndex = 9;
+            this.btnEmergencyExit.Text = "Emergency vehicle";
+            this.btnEmergencyExit.UseVisualStyleBackColor = true;
             // 
             // btnVehicleArrivesExit
             // 
@@ -537,15 +552,16 @@
             this.btnVehicleArrivesExit.UseVisualStyleBackColor = true;
             this.btnVehicleArrivesExit.Click += new System.EventHandler(this.CarArrivesAtExit);
             // 
-            // btnPrepaidExit
+            // btnPrePaidExit
             // 
-            this.btnPrepaidExit.Location = new System.Drawing.Point(8, 185);
-            this.btnPrepaidExit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrepaidExit.Name = "btnPrepaidExit";
-            this.btnPrepaidExit.Size = new System.Drawing.Size(209, 53);
-            this.btnPrepaidExit.TabIndex = 8;
-            this.btnPrepaidExit.Text = "Prepaid car enters their code to exit";
-            this.btnPrepaidExit.UseVisualStyleBackColor = true;
+            this.btnPrePaidExit.Location = new System.Drawing.Point(8, 185);
+            this.btnPrePaidExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrePaidExit.Name = "btnPrePaidExit";
+            this.btnPrePaidExit.Size = new System.Drawing.Size(209, 53);
+            this.btnPrePaidExit.TabIndex = 8;
+            this.btnPrePaidExit.Text = "Prepaid car enters their code to exit";
+            this.btnPrePaidExit.UseVisualStyleBackColor = true;
+            this.btnPrePaidExit.Click += new System.EventHandler(this.PrePaidEnteredToken);
             // 
             // btnNormalExit
             // 
@@ -560,9 +576,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnPrePaidEnters);
             this.groupBox1.Controls.Add(this.btnVehicleEnters);
             this.groupBox1.Controls.Add(this.btnEmergencyEntrance);
-            this.groupBox1.Controls.Add(this.btnPrepaidEntrance);
+            this.groupBox1.Controls.Add(this.btnPrePaidEntrance);
             this.groupBox1.Controls.Add(this.btnNormalEntrance);
             this.groupBox1.Controls.Add(this.btnVehicleArrivesEntrance);
             this.groupBox1.Controls.Add(this.lblTicketMachine);
@@ -574,6 +591,17 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Entrance simulator";
+            // 
+            // btnPrePaidEnters
+            // 
+            this.btnPrePaidEnters.Location = new System.Drawing.Point(8, 366);
+            this.btnPrePaidEnters.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrePaidEnters.Name = "btnPrePaidEnters";
+            this.btnPrePaidEnters.Size = new System.Drawing.Size(209, 53);
+            this.btnPrePaidEnters.TabIndex = 6;
+            this.btnPrePaidEnters.Text = "Pre paid vehicle enters car park";
+            this.btnPrePaidEnters.UseVisualStyleBackColor = true;
+            this.btnPrePaidEnters.Click += new System.EventHandler(this.PrePaidCarEntersCarPark);
             // 
             // btnVehicleEnters
             // 
@@ -596,15 +624,16 @@
             this.btnEmergencyEntrance.Text = "Emergency vehicle";
             this.btnEmergencyEntrance.UseVisualStyleBackColor = true;
             // 
-            // btnPrepaidEntrance
+            // btnPrePaidEntrance
             // 
-            this.btnPrepaidEntrance.Location = new System.Drawing.Point(8, 185);
-            this.btnPrepaidEntrance.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrepaidEntrance.Name = "btnPrepaidEntrance";
-            this.btnPrepaidEntrance.Size = new System.Drawing.Size(209, 53);
-            this.btnPrepaidEntrance.TabIndex = 3;
-            this.btnPrepaidEntrance.Text = "Prepaid vehicle enters their code";
-            this.btnPrepaidEntrance.UseVisualStyleBackColor = true;
+            this.btnPrePaidEntrance.Location = new System.Drawing.Point(8, 185);
+            this.btnPrePaidEntrance.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrePaidEntrance.Name = "btnPrePaidEntrance";
+            this.btnPrePaidEntrance.Size = new System.Drawing.Size(209, 53);
+            this.btnPrePaidEntrance.TabIndex = 3;
+            this.btnPrePaidEntrance.Text = "Prepaid vehicle enters their code";
+            this.btnPrePaidEntrance.UseVisualStyleBackColor = true;
+            this.btnPrePaidEntrance.Click += new System.EventHandler(this.DriverPrePaid);
             // 
             // btnNormalEntrance
             // 
@@ -705,7 +734,7 @@
         private System.Windows.Forms.Button btnSecureAdvancePayment;
         private System.Windows.Forms.Button btnToggleEmergency;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ListBox lstPrepaidTickets;
+        private System.Windows.Forms.ListBox lstPrePaidTickets;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ListBox lstActiveTickets;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -733,14 +762,14 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnVehicleExits;
         private System.Windows.Forms.Label lblTicketValidator;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnEmergencyExit;
         private System.Windows.Forms.Button btnVehicleArrivesExit;
-        private System.Windows.Forms.Button btnPrepaidExit;
+        private System.Windows.Forms.Button btnPrePaidExit;
         private System.Windows.Forms.Button btnNormalExit;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnVehicleEnters;
         private System.Windows.Forms.Button btnEmergencyEntrance;
-        private System.Windows.Forms.Button btnPrepaidEntrance;
+        private System.Windows.Forms.Button btnPrePaidEntrance;
         private System.Windows.Forms.Button btnNormalEntrance;
         private System.Windows.Forms.Button btnVehicleArrivesEntrance;
         private System.Windows.Forms.Label lblTicketMachine;
@@ -751,6 +780,8 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label lblEmergencySign;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button btnPrePaidEnters;
+        private System.Windows.Forms.Button btnPrePaidExits;
     }
 }
 

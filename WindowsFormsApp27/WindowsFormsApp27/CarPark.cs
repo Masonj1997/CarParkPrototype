@@ -11,6 +11,7 @@ namespace WindowsFormsApp27
         //Attributes
         private int currentSpaces;
         private int currentPrePaidSpaces;
+        private int currentPrePaidTickets;
         private int maxPrePaid = 5;
         private int maxSpace = 5;
         private EntrySensor entry;
@@ -44,6 +45,11 @@ namespace WindowsFormsApp27
             entryBarrier.Raise();
         }
 
+        public void PrePaidChecked()
+        {
+            entryBarrier.Raise();
+        }
+
         public void CarEnteredCarPark()
         {
             currentSpaces--;
@@ -51,6 +57,13 @@ namespace WindowsFormsApp27
                 fullSign.SetLit(true);
             else
                 fullSign.SetLit(false);
+            entryBarrier.Lower();
+            ticketMachine.ClearMessage();
+        }
+
+        public void PrePaidCarEnteredCarPark()
+        {
+            currentPrePaidSpaces--;
             entryBarrier.Lower();
             ticketMachine.ClearMessage();
         }
@@ -73,6 +86,13 @@ namespace WindowsFormsApp27
             currentSpaces++;
         }
 
+        public void PrePaidCarExitedCarPark()
+        {
+            exitBarrier.Lower();
+            ticketValidator.ClearMessage();
+            currentPrePaidSpaces++;
+        }
+
         public bool IsFull()
         {
             if (currentSpaces == 0)
@@ -83,7 +103,7 @@ namespace WindowsFormsApp27
 
         public bool IsEmpty()
         {
-            if (currentSpaces == maxSpace)
+            if (currentSpaces == maxSpace && currentPrePaidSpaces == maxPrePaid)
                 return true;
             else
                 return false;
@@ -112,6 +132,15 @@ namespace WindowsFormsApp27
         public int GetMaxPrePaidSpaces()
         {
             return maxPrePaid;
+        }
+        public int GetCurrentPrePaidTickets()
+        {
+            return currentPrePaidTickets;
+        }
+
+        public void AddPrePaidTicket()
+        {
+            currentPrePaidTickets++;
         }
     }
 }

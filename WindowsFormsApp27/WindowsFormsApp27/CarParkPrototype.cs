@@ -39,8 +39,9 @@ namespace WindowsFormsApp27
             ///// Class contructors are not defined so there will be errors
             ///// This code is correct for the basic version though
             activeTickets = new ActiveTickets();
-            ticketMachine = new TicketMachine(activeTickets);
-            ticketValidator = new TicketValidator(activeTickets);
+            activePrePaidTickets = new ActivePrePaid();
+            ticketMachine = new TicketMachine(activeTickets, activePrePaidTickets);
+            ticketValidator = new TicketValidator(activeTickets, activePrePaidTickets);
             entryBarrier = new Barrier();
             exitBarrier = new Barrier();
             fullSign = new FullSign();
@@ -55,14 +56,22 @@ namespace WindowsFormsApp27
 
             btnVehicleArrivesEntrance.Visible = true;
             btnNormalEntrance.Visible = false;
+            btnPrePaidEntrance.Visible = false;
+            btnEmergencyEntrance.Visible = false;
+            btnPrePaidEnters.Visible = false;
             btnVehicleEnters.Visible = false;
+
             btnVehicleArrivesExit.Visible = false;
             btnNormalExit.Visible = false;
+            btnPrePaidExit.Visible = false;
+            btnEmergencyExit.Visible = false;
             btnVehicleExits.Visible = false;
+            btnPrePaidExits.Visible = false;
 
             lblTicketMachine.Text = "";
             lblTicketValidator.Text = "";
             lstActiveTickets.Items.Clear();
+            lstPrePaidTickets.Items.Clear();
 
             UpdateDisplay();
         }
@@ -81,7 +90,22 @@ namespace WindowsFormsApp27
 
         private void DriverPrePaid(object sender, EventArgs e)
         {
-            //ticketMachine.EnterPrePaidCode();
+            bool ticketChecked = false;
+            do
+            {
+                int ticketNo = Convert.ToInt32(Interaction.InputBox("Please enter the ticket number of the ticket you wish to use: ", "Pay Ticket", "0"));
+                //Ticket is valid if the entered ticket number matches an existing ticket and said ticket hasn't already been paid for
+                if (ticketValidator.EnterPrePaidCode(ticketNo) && activePrePaidTickets.InCarPark(ticketNo))
+                {
+                    MessageBox.Show("Ticket has been successfully checked!");
+                    ticketChecked = true;
+                }
+                else
+                    MessageBox.Show("ERROR: Ticket number invalid!");
+
+            } while (ticketChecked == false);
+
+            ticketMachine.PrePaidChecked();
             UpdateDisplay();
         }
         private void EmergencyDriverEnter(object sender, EventArgs e)
@@ -96,6 +120,12 @@ namespace WindowsFormsApp27
             UpdateDisplay();
         }
 
+        private void PrePaidCarEntersCarPark(object sender, EventArgs e)
+        {
+            entrySensor.PrePaidCarLeftSensor();
+            UpdateDisplay();
+        }
+
         private void CarArrivesAtExit(object sender, EventArgs e)
         {
             exitSensor.CarDetected();
@@ -104,7 +134,6 @@ namespace WindowsFormsApp27
 
         private void DriverEntersTicket(object sender, EventArgs e)
         {
-
             if (ticketValidator.TicketEntered())
             {
                 carPark.TicketValidated();
@@ -113,9 +142,38 @@ namespace WindowsFormsApp27
             UpdateDisplay();
         }
 
+        private void PrePaidEnteredToken(object sender, EventArgs e)
+        {
+            bool ticketChecked = false;
+            do
+            {
+                int ticketNo = Convert.ToInt32(Interaction.InputBox("Please enter the ticket number of the ticket you wish to use: ", "Pay Ticket", "0"));
+                //Ticket is valid if the entered ticket number matches an existing ticket and said ticket hasn't already been paid for
+                if (!activePrePaidTickets.InCarPark(ticketNo))
+                {
+                    MessageBox.Show("Ticket has been successfully checked!");
+                    ticketChecked = true;
+                    ticketValidator.PrePaidCodeEntered(ticketNo);
+
+                }
+                else
+                    MessageBox.Show("ERROR: Ticket number invalid!");
+
+            } while (ticketChecked == false);
+
+            carPark.TicketValidated();
+            UpdateDisplay();
+        }
+
         private void CarExitsCarPark(object sender, EventArgs e)
         {
             exitSensor.CarLeftSensor();
+            UpdateDisplay();
+        }
+
+        private void PrePaidCarExitsCarPark(object sender, EventArgs e)
+        {
+            exitSensor.PrePaidCarLeftSensor();
             UpdateDisplay();
         }
 
@@ -130,6 +188,22 @@ namespace WindowsFormsApp27
 
             UpdateDisplay();
         }
+        private void btnSecureAdvancePayment_Click(object sender, EventArgs e)
+        {
+            if (carPark.GetCurrentPrePaidTickets() < carPark.GetMaxPrePaidSpaces())
+            {
+                ticketMachine.PrintPrePaidTicket();
+                UpdateDisplay();
+
+            }
+
+            else
+            {
+                MessageBox.Show("There are no more avaliable advance bookings");
+            }
+        }
+
+
 
         private void UpdateDisplay()
         {
@@ -138,56 +212,83 @@ namespace WindowsFormsApp27
             lblExitSensor.Text = Convert.ToString(exitSensor.isCarOnSensor());
             lblExitBarrier.Text = Convert.ToString(exitBarrier.IsLifted());
             lblFullSign.Text = Convert.ToString(fullSign.IsLit());
+            lblFloor2Spaces.Text = Convert.ToString(carPark.GetCurrentPrePaidSpaces());
             lblFloor0Spaces.Text = Convert.ToString(carPark.GetCurrentSpaces());
             lblTicketMachine.Text = Convert.ToString(ticketMachine.GetMessage());
             lblTicketValidator.Text = Convert.ToString(ticketValidator.GetMessage());
             lstActiveTickets.Items.Clear();
+            lstPrePaidTickets.Items.Clear();
 
             if (!carPark.IsFull())
             {
                 if (entrySensor.isCarOnSensor() && entryBarrier.IsLifted())
                 {
                     btnVehicleEnters.Visible = true;
+                    btnPrePaidEnters.Visible = true;
                     btnNormalEntrance.Visible = false;
+                    btnPrePaidEntrance.Visible = false;
+                    btnEmergencyEntrance.Visible = false;
                 }
                 else if (entrySensor.isCarOnSensor())
                 {
                     btnNormalEntrance.Visible = true;
+                    btnPrePaidEntrance.Visible = true;
+                    btnEmergencyEntrance.Visible = true;
                     btnVehicleArrivesEntrance.Visible = false;
                 }
                 else
                 {
                     btnVehicleArrivesEntrance.Visible = true;
                     btnVehicleEnters.Visible = false;
+                    btnPrePaidEnters.Visible = false;
                 }
             }
             else
+            {
                 btnVehicleEnters.Visible = false;
+                btnPrePaidEnters.Visible = false;
+            }                  
+            
 
             if (!carPark.IsEmpty())
             {
                 if (exitSensor.isCarOnSensor() && exitBarrier.IsLifted())
                 {
                     btnVehicleExits.Visible = true;
+                    btnPrePaidExits.Visible = true;
                     btnNormalExit.Visible = false;
+                    btnPrePaidExit.Visible = false;
+                    btnEmergencyExit.Visible = false;
                 }
                 else if (exitSensor.isCarOnSensor())
                 {
                     btnNormalExit.Visible = true;
+                    btnPrePaidExit.Visible = true;
+                    btnEmergencyExit.Visible = true;
                     btnVehicleArrivesExit.Visible = false;
                 }
                 else
                 {
                     btnVehicleArrivesExit.Visible = true;
                     btnVehicleExits.Visible = false;
+                    btnPrePaidExits.Visible = false;
                 }
             }
             else
+            {
                 btnVehicleExits.Visible = false;
+                btnPrePaidExits.Visible = false;
+            }
+                
 
             foreach (var ticket in activeTickets.GetTickets())
             {
                 lstActiveTickets.Items.Add("#" + ticket.GetHashCode() + ": " + ticket.IsPaid());
+            }
+
+            foreach (var ticket in activePrePaidTickets.GetTickets())
+            {
+                lstPrePaidTickets.Items.Add("#" + ticket.GetHashCode() + ": " + ticket.InCarPark());
             }
         }
     }
